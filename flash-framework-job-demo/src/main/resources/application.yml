@@ -1,0 +1,10 @@
+spring:
+  profiles:
+    ## Quartz 无数据源启动（未开启补偿机制）
+    #active: quartz-nodatasource
+    ## Quartz 数据源启动（开启补偿机制）
+    #active: quartz-datasource
+    ## ElasticJob 无数据启动（默认H2存储自身log）
+    #active: elasticjob-nodatasource
+    ## ElasticJob 数据源启动（开启补偿机制、开启自身log）
+    active: elasticjob-datasource

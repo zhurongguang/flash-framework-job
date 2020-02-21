@@ -1,0 +1,24 @@
+### Quartz 配置
+spring:
+  application:
+    name: job-task
+
+tasks:
+  type: elastic_job
+  ## 是否开启补偿机制,开启需要配置数据源
+  compensate: false
+  ## 任务异常是否发通知
+  error-message-notice: false
+  ## 异常邮件组
+  mail-group: zhurg@163.com
+  elastic-job:
+    namespace: job-task
+    server-lists: 127.0.0.1:2181
+
+
+
+error.job.cron: '0 0/2 * * * ?'
+error.job.params: "{\"orderCode\":\"1234567\"}"
+error.job.compensateCron: '0 0/1 * * * ?'
+error.job.mails: 123@qq.com,456@qq.com
+

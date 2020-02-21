@@ -1,0 +1,43 @@
+spring:
+  application:
+    name: job-task
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://127.0.0.1:3306/flash_framework?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true&useSSL=false&zeroDateTimeBehavior=convertToNull
+    username: root
+    password: password
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      minimum-idle: 5
+      maximum-pool-size: 20
+  mail:
+    host: smtp.163.com
+    port: 25
+    username: xxx
+    password: ghost1127
+  quartz:
+      job-store-type: memory
+      properties:
+        org:
+          quartz:
+            scheduler:
+              instanceName: job-task
+              instanceId: AUTO
+            threadPool:
+              class: org.quartz.simpl.SimpleThreadPool
+              threadCount: 10
+              threadPriority: 5
+              threadsInheritContextClassLoaderOfInitializingThread: true
+tasks:
+  type: quartz
+  ## 是否开启补偿机制,开启需要配置数据源
+  compensate: true
+  ## 任务异常是否发通知
+  error-message-notice: false
+  ## 异常邮件组
+  mail-group: zhurg@163.com
+
+error.job.cron: '0 0/1 * * * ?'
+error.job.params: "{\"orderCode\":\"1234567\"}"
+error.job.compensateCron: '0/10 * * * * ?'
+error.job.mails: 123@qq.com,456@qq.com
