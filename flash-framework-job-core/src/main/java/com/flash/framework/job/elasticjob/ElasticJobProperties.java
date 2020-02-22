@@ -20,7 +20,7 @@ public class ElasticJobProperties {
     /**
      * 命名空间.
      */
-    private String namespace;
+    private String namespace = "flash-framework-job";
 
     /**
      * 等待重试的间隔时间的初始值.

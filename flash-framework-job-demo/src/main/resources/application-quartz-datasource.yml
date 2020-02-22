@@ -14,7 +14,7 @@ spring:
     host: smtp.163.com
     port: 25
     username: xxx
-    password: ghost1127
+    password: xxx
   quartz:
       job-store-type: memory
       properties:
