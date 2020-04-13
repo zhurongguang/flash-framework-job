@@ -323,6 +323,47 @@ public JobExecutionService jobExecutionService() {
 
 * MessageNotice，默认实现为MailMessageNotice，用户可根据需求自行扩展存储方式。
 
+#### 5.手动增删改任务
+
+* JobScheduleFactory
+
+```java
+public interface JobScheduleFactory<S, C> {
+
+    /**
+     * 创建任务
+     *
+     * @param context
+     * @return
+     */
+    S createScheduler(C context) throws Exception;
+
+    /**
+     * 创建并启动任务
+     *
+     * @param context
+     * @p
+     */
+    void addScheduler(C context) throws Exception;
+
+    /**
+     * 修改任务
+     *
+     * @param context
+     */
+    void modifyScheduler(C context) throws Exception;
+
+    /**
+     * 移除任务
+     *
+     * @param context
+     */
+    void removeScheduler(C context) throws Exception;
+}
+```
+
+Quartz和ElasticJob的实现分别为：QuartzJobScheduleFactory、ElasticJobScheduleFactory
+
 ### 五、数据库
 
 * job_task_execution_log，记录任务执行日志
